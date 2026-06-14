@@ -926,39 +926,75 @@ footer {
 /* ===========================================
    RESPONSIVE
 =========================================== */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
 @media (max-width: 1040px) {
   .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-  .hero-panel { max-width: 480px; }
+  .hero-panel { max-width: 520px; }
   .hiw-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
   .hiw-grid::after { display: none; }
   .testi-grid { grid-template-columns: 1fr 1fr; }
   .proof-numbers { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .vs-table { grid-template-columns: 1fr; }
+  .vs-table { grid-template-columns: 1fr; gap: 16px; }
   .vs-col.highlight::before { display: none; }
+  .prob-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 720px) {
   nav { padding: 0 16px; top: 12px; }
+  .nav-inner { padding: 10px 14px 10px 18px; }
   .nav-links { display: none; }
+  .ticker-track span { font-size: 10px; padding: 0 20px; }
   .section, .problem-section, .hiw-section, .wyg-section,
-  .testi-section, .vs-section, .faq-section, .cta-section { padding: 72px 20px; }
-  .hero { padding: 130px 20px 80px; }
-  .hero h1 { font-size: 40px; }
-  .client-strip { padding: 24px 20px; }
-  .cs-logos { gap: 24px; }
+  .testi-section, .vs-section, .faq-section, .cta-section { padding: 64px 20px; }
+  .hero { padding: 120px 20px 72px; }
+  .hero h1 { font-size: clamp(34px, 9vw, 44px); letter-spacing: -0.5px; }
+  .hero-desc { font-size: 15px; }
+  .client-strip { padding: 20px 20px; }
+  .cs-logos { gap: 20px; }
+  .cs-logo { font-size: 13px; }
   .prob-grid { grid-template-columns: 1fr; gap: 2px; }
-  .hiw-grid { grid-template-columns: 1fr; }
+  .prob-card { padding: 24px 20px; }
+  .hiw-grid { grid-template-columns: 1fr; gap: 36px; }
+  .hiw-step { padding: 0; }
   .wyg-layout { grid-template-columns: 1fr; }
   .wyg-card.span2 .wyg-inner { grid-template-columns: 1fr; gap: 20px; }
   .wyg-card.span2 { grid-column: auto; }
+  .wyg-card { padding: 24px 20px; }
   .testi-grid { grid-template-columns: 1fr; }
   .proof-numbers { grid-template-columns: 1fr 1fr; }
+  .pn { padding: 20px 16px; }
+  .pn-num { font-size: 32px; }
   .cta-box { padding: 48px 24px; }
-  .cta-checklist { gap: 14px; }
-  .hero-cta-row { flex-direction: column; align-items: flex-start; }
+  .cta-h2 { font-size: clamp(26px, 7vw, 38px); }
+  .cta-checklist { flex-direction: column; align-items: center; gap: 10px; }
+  .hero-cta-row { flex-direction: column; align-items: stretch; gap: 12px; }
   .btn-main, .btn-secondary { width: 100%; justify-content: center; text-align: center; }
+  .hero-proof { flex-wrap: wrap; gap: 12px; }
+  .proof-divider { display: none; }
   footer { padding: 48px 20px 28px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .panel-metrics { grid-template-columns: 1fr 1fr; }
+  .faq-q { font-size: 14px; }
+  .section-h2 { font-size: clamp(26px, 7vw, 36px); }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 32px; }
+  .proof-numbers { grid-template-columns: 1fr 1fr; }
+  .testi-card { padding: 22px 18px; }
+  .kicker-badge { font-size: 9px; }
+  .vs-head-title { font-size: 16px; }
+  .vs-row { font-size: 12px; }
+  .nav-cta { padding: 8px 14px; font-size: 12px; }
+}
+/* Touch targets */
+@media(hover:none),(pointer:coarse){
+  .btn-main,.btn-secondary{min-height:50px}
+  .nav-cta,.nav-links a{min-height:44px;display:inline-flex;align-items:center}
+  .faq-q{min-height:52px}
 }
 </style>
 </head>

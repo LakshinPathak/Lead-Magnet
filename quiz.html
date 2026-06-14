@@ -1131,6 +1131,14 @@ nav{
   border-radius:50%;flex-shrink:0;
 }
 
+/* Touch targets */
+@media(hover:none),(pointer:coarse){
+  .opt{min-height:56px}
+  .btn-begin,.btn-nxt,.btn-unlock,.btn-cta-main{min-height:50px}
+  .btn-prev{min-height:44px}
+  .nav-cta{min-height:40px;display:inline-flex;align-items:center}
+}
+
 /* ══ FOOTER ══ */
 footer{
   background:var(--surface);
@@ -1151,31 +1159,64 @@ footer{
 .footer-links a:hover{color:var(--white)}
 
 /* ══ RESPONSIVE ══ */
+@media(prefers-reduced-motion:reduce){
+  *{transition-duration:0.01ms!important;animation-duration:0.01ms!important}
+}
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;gap:32px}
+  .hero{grid-template-columns:1fr;gap:32px;padding:60px 24px 40px}
   .hero-right{display:none}
   .intro-card{grid-template-columns:1fr}
-  .ic-top{padding:40px 40px 36px}
+  .ic-top{padding:40px 32px 36px}
   .q-card{grid-template-columns:1fr;grid-template-rows:auto}
-  .q-header{border-right:none;border-bottom:1px solid var(--border);grid-row:auto;padding:32px 32px 24px}
-  .q-body{padding:24px 32px 0}
-  .q-footer{padding:20px 32px 28px}
+  .q-header{border-right:none;border-bottom:1px solid var(--border);grid-row:auto;padding:32px 28px 24px;background:#0d1a0d}
+  .q-body{padding:24px 28px 0}
+  .q-footer{padding:18px 28px 26px}
   .gate-card{grid-template-columns:1fr}
-  .gate-top{padding:36px 40px}
+  .gate-top{padding:36px 32px}
+  .gate-body{padding:32px 32px}
+  .ic-bottom{padding:32px 32px}
 }
 @media(max-width:600px){
-  .options-grid{grid-template-columns:1fr}
+  nav{padding:0 16px;height:56px}
+  .logo-dot{width:24px;height:24px;font-size:13px}
+  .nav-logo{font-size:16px}
+  .nav-tag{display:none}
+  .quiz-section{margin:32px auto;padding:0 16px}
+  .prog-shell{padding:14px 16px}
+  .options-grid{grid-template-columns:1fr;gap:8px}
+  .opt{min-height:44px;padding:14px 16px}
   .ic-grid{grid-template-columns:1fr 1fr}
   .ic-points{grid-template-columns:1fr}
+  .ic-top{padding:28px 24px}
+  .ic-bottom{padding:24px 24px}
+  .ic-top h2{font-size:clamp(20px,6vw,28px)}
   .score-band{grid-template-columns:1fr 1fr}
   .metrics-grid{grid-template-columns:1fr 1fr}
-  .gate-body,.ic-bottom,.q-header,.q-body,.q-footer{padding-left:24px;padding-right:24px}
-  .ic-top,.gate-top,.res-hero,.cta-block{padding:28px}
-  .q-header{background:#0d1a0d}
-  .cta-block{flex-direction:column}
-  .trust-bar{gap:20px}
-  nav{padding:0 20px}
-  .nav-tag{display:none}
+  .gate-body,.q-header,.q-body,.q-footer{padding-left:20px;padding-right:20px}
+  .gate-top{padding:28px 20px}
+  .res-hero{padding:28px 20px;border-radius:14px}
+  .diag-card,.strategy-card,.metrics-card{padding:20px 20px;border-radius:14px}
+  .cta-block{flex-direction:column;padding:24px 20px;border-radius:14px;text-align:center}
+  .cta-block-text{width:100%}
+  .btn-cta-main{width:100%;justify-content:center}
+  .trust-bar{gap:14px;padding:14px 16px;flex-wrap:wrap}
+  .trust-item{font-size:11px}
+  .trust-icon{width:26px;height:26px;font-size:13px}
+  .form-grid{grid-template-columns:1fr}
+  .form-field.full{grid-column:auto}
+  footer{padding:20px 16px;flex-direction:column;gap:8px;text-align:center}
+  .footer-links{justify-content:center}
+  .q-title{font-size:clamp(16px,5vw,20px)}
+  .ai-loading{padding:40px 20px}
+  .ai-loading-steps{max-width:100%}
+  .step-item{grid-template-columns:36px 1fr;gap:12px}
+  .step-num{width:36px;height:36px;font-size:15px}
+}
+@media(max-width:400px){
+  .score-band{grid-template-columns:1fr 1fr}
+  .ic-grid{grid-template-columns:1fr}
+  .metrics-grid{grid-template-columns:1fr}
+  .prog-shell{flex-direction:column;gap:8px;align-items:flex-start}
 }
 </style>
 </head>
@@ -1187,7 +1228,8 @@ footer{
 <nav aria-label="Main navigation">
   <a class="nav-logo" href="index.html" style="text-decoration:none">
     <div class="logo-dot">G</div>
-    GrowthDiag ✦</div>
+    GrowthDiag
+  </a>
   <div class="nav-right">
     <div class="nav-tag">Free Assessment</div>
     <a class="nav-cta" href="#quiz-section" aria-label="Take the free B2B marketing quiz">Take the Quiz</a>
